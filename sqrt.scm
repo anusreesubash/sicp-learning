@@ -11,7 +11,7 @@
 (define (square x) (* x x))
 
 (define (goodenough guess x) (< (abs (- (square guess) x)) .001))
- (improve guess x) x)))
+ (improve guess x) x
 
 (define (root x)
   (try 1 x)

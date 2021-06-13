@@ -3,5 +3,5 @@
         ((= x 0) 0)
         ((< 0 x) x)))
 
-(absolute 0)
+(absolute -1)
 
