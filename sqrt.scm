@@ -10,13 +10,22 @@
 
 (define (square x) (* x x))
 
-(define (goodenough guess x) (< (abs (- (square guess) x)) .001))
- (improve guess x) x
+(define (absolute x)
+  (if (< x 0) (- x) x))
+
+(define (goodenough guess x) 
+  (< (absolute (- (square guess) x)) 0.1))
+
+(define (improve guess x) 
+  (average guess (/ x guess)))
+
+(define (try guess x)
+  (if (goodenough guess x)
+       guess
+       (try (improve guess x) x)))
 
 (define (root x)
-  (try 1 x)
-)
+  (try 1 x))
 
-(root 9.0)
-
+(root 2)
 
